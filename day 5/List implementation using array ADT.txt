@@ -1,0 +1,45 @@
+#include<stdio.h>
+{
+    int nData;
+    struct node* pLink;
+};
+ 
+ 
+void displayLL(struct node* p)
+{
+  printf("Display The Link List:\n");   
+  if(p)
+  {
+    do
+    {
+      printf(" %d", p->nData);
+      p=p->pLink;
+    }
+    while(p);
+  }
+  else
+    printf("Linked List is empty.");
+}
+ 
+int main()
+{
+  struct node* pNode1= NULL;
+  struct node* pNode2= NULL;
+  struct node* pNode3= NULL;
+     
+  pNode1 = (struct node *)malloc(sizeof(struct node *));
+  pNode1->nData =10;
+     
+  pNode2 = (struct node *)malloc(sizeof(struct node *));
+  pNode2->nData =20;
+     
+  pNode3 = (struct node *)malloc(sizeof(struct node *));
+  pNode3->nData =30;
+     
+  pNode1->pLink = pNode2;
+  pNode2->pLink = pNode3;    
+  pNode3->pLink = NULL;
+     
+  if(pNode1)    
+    displayLL(pNode1);
+}
